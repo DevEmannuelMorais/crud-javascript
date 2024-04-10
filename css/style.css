@@ -1,3 +1,14 @@
+h1 {
+  font-family: Arial, sans-serif; 
+  font-size: 28px; 
+  color: #333;
+  text-align: center; 
+  margin-top: 20px; 
+  margin-bottom: 30px; 
+  text-transform: uppercase;
+  letter-spacing: 2px; 
+}
+
 body {
     font-family: Arial, sans-serif;
   }
@@ -39,10 +50,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5); /* Fundo semi-transparente */
-    display: none; /* Inicialmente escondido */
-    z-index: 1050; /* Garante que esteja acima de outros elementos */
-    overflow: auto; /* Permite rolagem se o modal for muito grande */
+    background-color: rgba(0,0,0,0.5); 
+    display: none; 
+    z-index: 1050; 
+    overflow: auto; 
 }
 
 .modal {
@@ -63,7 +74,7 @@ body {
     cursor: pointer;
 }
 
-.modal input[type="text"], .modal input[type="number"] {
+.modal input[type="text"], .modal input[type="number"], .modal select {
   width: 100%; 
   padding: 10px; 
   margin: 8px 0; 
@@ -78,4 +89,31 @@ body {
   margin-bottom: 5px; 
   font-size: 18px; 
   font-weight: bold; 
+}
+
+.action-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: auto; 
+}
+
+.options-column {
+  text-align: center; 
+  width: 20%;
+}
+
+.action-btn{
+  width: auto;
+}
+
+.required {
+  color: red;
 }
