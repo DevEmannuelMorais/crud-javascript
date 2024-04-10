@@ -42,11 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         quantidadeInput.value = item.quantidade;
 
         editIndexInput.value = index;
-
-        itemModal.style.display = 'block';
-
-
-        editIndexInput.value = index;
         itemModal.style.display = 'block';
     };
 
