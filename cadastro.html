@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" ">
+        <input type="number" id="nota1">
+        <input type="number" id="nota2">
+        <input type="submit" onclick="maior()">
+    
+    </form>
+</body>
+<script>
+    function maior(){
+        var n1 = document.getElementById('nota1').value
+        var n2 = document.getElementById('nota2').value
+        if(n1 > n2){
+            n1
+        } else if(n2 > n1){
+            n2
+        } else{
+            alert('iguais')
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Itens</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--<script src="js/listar.js"></script> -->  
+    <script src="js/crud.js"></script>
+</head>
+<body>
+    <h1>Itens Cadastrados</h1>
+<table id="itemsTable">
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Marca</th>
+      <th>Qtde.</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  </tbody>
+</table>
+<button id="btnNew">Novo Item</button>
+
+<!-- Modal de Cadastro/Edição -->
+<div id="itemModal" class="modal-backdrop" style="display:none;">
+  <div class="modal">
+    <span class="close-button" onclick="closeModal()">X</span>
+    <h2 id="modalTitle">Editar Item</h2>
+    <input type="hidden" id="editIndex" value="">
+    
+    <!-- Modelo -->
+    <label for="modelo">Modelo</label>
+    <input type="text" id="modelo" placeholder="Modelo">
+    
+    <!-- Marca -->
+    <label for="marca">Marca</label>
+    <input type="text" id="marca" placeholder="Marca">
+    
+    <!-- Quantidade -->
+    <label for="quantidade">Quantidade</label>
+    <input type="number" id="quantidade" placeholder="Quantidade">
+
+    <!-- Quantidade -->
+    <label for="quantidade">Quantidade</label>
+    <input type="radio" name="teste" value="2">
+    <input type="radio" name="teste" value="1">
+    <input type="radio" name="teste" value="3">
+
+    <input type="text" onsearch>
+
+
+    
+    <button onclick="saveItem()">Salvar</button>
+    <button onclick="closeModal()">Cancelar</button>
+</div>
+</div>
+
+
+</body>
+</html>
