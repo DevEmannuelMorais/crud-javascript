@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let items = [
-      { modelo: 'Acer Nitro', tipo: 'Notebook', marca: 'Acer', quantidade: 10 },
-      { modelo: 'S23 Ultra', tipo: 'Smartphone', marca: 'Samsung', quantidade: 5 }
+      { modelo: 'Acer Nitro', tipo: 'Notebook', marca: 'Acer', quantidade: 10, diferencas: ['Full HD'], condicao: 'Novo' },
+      { modelo: 'S23 Ultra', tipo: 'Smartphone', marca: 'Samsung', quantidade: 5, diferencas: ['Full HD'], condicao: 'Novo' }
     ];
 
     const itemsTableBody = document.querySelector('#itemsTable tbody');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const editIndexInput = document.getElementById('editIndex');
 
     function renderItems() {
-        itemsTableBody.innerHTML = ''; // Limpa a tabela antes de adicionar novos itens
+        itemsTableBody.innerHTML = ''; 
         items.forEach((item, index) => {
           const row = document.createElement('tr');
           row.innerHTML = `
@@ -35,11 +35,20 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modalTitle').innerText = 'Editar Item';
         const item = items[index];
 
-
         tipoInput.value = item.tipo;
         modeloInput.value = item.modelo;
         marcaInput.value = item.marca;
         quantidadeInput.value = item.quantidade;
+        
+
+        document.querySelectorAll('input[name="diferencias"]').forEach(checkbox => {
+          checkbox.checked = item.diferencas.includes(checkbox.value); 
+      });
+  
+
+      document.querySelectorAll('input[name="condicao"]').forEach(radio => {
+          radio.checked = radio.value === item.condicao; 
+      });
 
         editIndexInput.value = index;
         itemModal.style.display = 'block';
@@ -51,15 +60,23 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.saveItem = function() {
+      const diferencas = [];
+        document.querySelectorAll('input[name="diferencias"]:checked').forEach(checkbox => {
+          diferencas.push(checkbox.value);
+        });
+        const condicaoRadio = document.querySelector('input[name="condicao"]:checked');
+        const condicao = condicaoRadio ? condicaoRadio.value : '';
+    
         const itemData = {
           modelo: modeloInput.value,
           tipo: tipoInput.value,
           marca: marcaInput.value,
-          quantidade: quantidadeInput.value
+          quantidade: quantidadeInput.value,
+          diferencas: diferencas,
+          condicao: condicao
         };
 
-        //Verifica se todos os campos estão preenchidos
-        if (!itemData.modelo || !itemData.tipo || !itemData.marca || !itemData.quantidade) {
+        if (!itemData.modelo || !itemData.tipo || !itemData.marca || !itemData.quantidade || !itemData.diferencas || !itemData.condicao) {
             alert('Por favor, preencha todos os campos.');
             return;
         } 
@@ -74,16 +91,23 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.showModal = function() {
-        document.getElementById('itemModal').style.display = 'flex'; // Mostra o modal com display flex para ativar o Flexbox
+        document.getElementById('itemModal').style.display = 'flex'; 
     };
     
     window.closeModal = function() {
-        document.getElementById('itemModal').style.display = 'none'; // Esconde o modal
+        document.getElementById('itemModal').style.display = 'none'; 
         document.getElementById('modelo').value = '';
         document.getElementById('tipo').value = '';
         document.getElementById('marca').value = '';
         document.getElementById('quantidade').value = '';
         document.getElementById('editIndex').value = '';
+
+        document.querySelectorAll('input[name="diferencias"]').forEach(checkbox => {
+          checkbox.checked = false;
+      });
+      document.querySelectorAll('input[name="condicao"]').forEach(radio => {
+          radio.checked = false;
+      });
     };
 
     btnNew.addEventListener('click', function() {
@@ -97,8 +121,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function clearForm() {
     document.getElementById('modelo').value = '';
-    document.getElementById('tipo').value = 0;
-    document.getElementById('marca').value = 0 ;
+    document.getElementById('tipo').value = '';
+    document.getElementById('marca').value = '';
     document.getElementById('quantidade').value = '';
-    
+
+    document.querySelectorAll('input[name="diferencias"]').forEach(checkbox => {
+      checkbox.checked = false;
+  });
+  document.querySelectorAll('input[name="condicao"]').forEach(radio => {
+      radio.checked = false;
+    });
 }

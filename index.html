@@ -59,11 +59,28 @@
 
     <label for="quantidade">Quantidade</label>
     <input type="number" min="0" id="quantidade" placeholder="Quantidade" required>
+
+  
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 20px;">
+      <label style="font-size: 14px;">Diferencas: </label>
+        <label style="font-size: 14px; display: flex; align-items: center;"><input type="checkbox" id="fullHD" name="diferencias" value="Full HD" style="transform: scale(0.8);">Full HD</label>
+        <label style="font-size: 14px; display: flex; align-items: center;"><input type="checkbox" id="5g" name="diferencias" value="5G" style="transform: scale(0.8);">5G</label>
+        <label style="font-size: 14px; display: flex; align-items: center;"><input type="checkbox" id="dualChip" name="diferencias" value="Dual Chip" style="transform: scale(0.8);">Dual Chip</label>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 20px;">
+      <label style="font-size: 14px;">Condição: </label>
+      <label for="Novo" style="display: flex; align-items: center; font-size: 14px;"><input type="radio" id="novo" name="condicao" value="Novo" style="transform: scale(0.8);">Novo</label>
+      <label for="Usado" style="display: flex; align-items: center; font-size: 14px;"><input type="radio" id="usado" name="condicao" value="Usado" style="transform: scale(0.8);">Usado</label>
+    </div>
+
     
-    <div id="modalBtns">
-      <button onclick="saveItem()">Salvar</button>
-      <button onclick="closeModal()">Cancelar</button>
-      <button onclick="clearForm()">Limpar</button>
+    
+    <div style="display: flex; justify-content: flex-start;">
+      <button onclick="saveItem()"> Salvar </button>
+      <button onclick="closeModal()" class="buttoncancel">Cancelar</button>
+
+      <button onclick="clearForm()" style="margin-left: auto;">Limpar</button>
     </div>
 
   </div>
