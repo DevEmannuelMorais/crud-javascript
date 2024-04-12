@@ -55,8 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.deleteItem = function(index) {
+      var item = items[index];
+      var message = `Tem certeza que deseja excluir o ${item.tipo} ${item.modelo} da marca ${item.marca}?`;
+      if(confirm(message)) {
         items.splice(index, 1);
         renderItems();
+      } 
     };
 
     window.saveItem = function() {
