@@ -64,10 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.saveItem = function() {
+
+      const checkboxes = document.querySelectorAll('input[name="diferencias"]:checked');
       const diferencas = [];
-        document.querySelectorAll('input[name="diferencias"]:checked').forEach(checkbox => {
+      checkboxes.forEach(checkbox => {
           diferencas.push(checkbox.value);
-        });
+      });
+      
         const condicaoRadio = document.querySelector('input[name="condicao"]:checked');
         const condicao = condicaoRadio ? condicaoRadio.value : '';
     
@@ -84,6 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Por favor, preencha todos os campos.');
             return;
         } 
+
+        if (diferencas.length === 0) {
+          alert('Por favor, selecione pelo menos uma diferença.');
+          return false;
+        }
+
         const editIndex = editIndexInput.value;
         if (editIndex) {
           items[editIndex] = itemData;
