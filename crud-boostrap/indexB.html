@@ -48,7 +48,7 @@
                         <input type="hidden" id="editIndex" value="">
                         <div class="mb-3">
                             <label for="modelo" class="form-label">Modelo</label>
-                            <input type="text" class="form-control" id="modelo" required>
+                            <input type="text" class="form-control" id="modelo" required placeholder="Modelo">
                         </div>
                         <div class="mb-3">
                             <label for="tipo" class="form-label">Tipo</label>
@@ -76,7 +76,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="quantidade" class="form-label">Quantidade</label>
-                            <input type="number" class="form-control" id="quantidade" required>
+                            <input type="number" class="form-control" id="quantidade" required placeholder="Quantidade" min="0" > 
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Diferenças:</label>
@@ -108,6 +108,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <button type="reset" class="btn btn-danger" onclick="clearForm()">Limpar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary" onclick="saveItem()">Salvar</button>
                 </div>

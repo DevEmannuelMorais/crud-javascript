@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.editItem = function(index) {
+        document.getElementById('modalTitle').innerText = 'Editar Item';
         const item = items[index];
+        
         document.getElementById('modelo').value = item.modelo;
         document.getElementById('tipo').value = item.tipo;
         document.getElementById('marca').value = item.marca;
@@ -116,3 +118,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderItems();
 });
+
+function clearForm() {
+    document.getElementById('modelo').value = '';
+    document.getElementById('tipo').value = '';
+    document.getElementById('marca').value = '';
+    document.getElementById('quantidade').value = '';
+
+    document.querySelectorAll('input[name="diferencias"]').forEach(checkbox => {
+      checkbox.checked = false;
+  });
+  document.querySelectorAll('input[name="condicao"]').forEach(radio => {
+      radio.checked = false;
+    });
+}
