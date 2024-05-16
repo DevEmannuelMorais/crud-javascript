@@ -52,7 +52,7 @@ body {
   }
 
   .modal-backdrop {
-    position: fixed;
+    position: fixed; /* Posição fixa para cobrir toda a tela */
     top: 0;
     left: 0;
     width: 100%;
@@ -73,8 +73,7 @@ body {
     left: 50%; 
     transform: translate(-50%, -50%);
     max-width: 500px; 
-    width: 80%;
-    z-index: 1060; 
+    width: 80%; 
 }
 
 .close-button {
